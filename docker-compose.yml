@@ -1,0 +1,41 @@
+#! need for database
+# volumes:
+#   pgdata:
+
+services:
+  # frontend:
+  #   build: 
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #       - 3000:3000
+  #   working_dir: /app
+  api: 
+    build:
+      context: ./api
+      # context is where the dockerfile is located
+      dockerfile: Dockerfile
+    ports: 
+        - "8000:8000"
+        # ! here one down commented out for database
+  #   environment:
+  #     DB_URL: "postgresql+psycopg2://postgres:changedpass@db:5432/roller_derby_db"
+
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  # db:
+  #   image: postgres
+  #   restart: always
+  #   environment:
+  #     POSTGRES_PASSWORD: changedpass
+  #     POSTGRES_DB: roller_derby_db
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   ports:
+  #     - 5432:5432
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U postgres"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
