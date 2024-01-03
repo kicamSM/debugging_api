@@ -1,15 +1,19 @@
 [project]
-name = "api"
+name = "capstone2"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
     {name = "Sophia Macik", email = "kicamSMM@gmail.com"},
 ]
 dependencies = []
-requires-python = "==3.12.*"
+requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
 
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
 
 [tool.pdm]
-package-type = "application"
+package-type = "library"
